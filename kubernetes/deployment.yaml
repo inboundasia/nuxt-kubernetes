@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nuxt-demo-deployment
+  labels:
+    app: nuxt-demo
+spec:
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: nuxt-demo
+  template:
+    metadata:
+      labels:
+        app: nuxt-demo
+    spec:
+      containers:
+        - name: nuxt-demo
+          image: asia.gcr.io/inboundmarketing/nuxt-demo
+          resources:
+          ports:
+            - containerPort: 3000
+              protocol: TCP

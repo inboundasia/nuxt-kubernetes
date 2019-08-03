@@ -1,22 +1,14 @@
-# nuxt
+# Deploy Flow
 
-> My stellar Nuxt.js project
+`docker build . -t asia.gcr.io/inboundmarketing/nuxt-demo`
 
-## Build Setup
+`docker push asia.gcr.io/inboundmarketing/nuxt-demo`
 
-``` bash
-# install dependencies
-$ npm install
+`kubectl apply -f kubernetes/deployment.yaml`
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+`gcloud compute addresses create nuxt-demo-ip --global`
 
-# build for production and launch server
-$ npm run build
-$ npm start
+`gcloud compute addresses describe nuxt-demo-ip --global`
 
-# generate static project
-$ npm run generate
-```
+`kubectl apply -f kubernetes/ingress.yaml`
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
