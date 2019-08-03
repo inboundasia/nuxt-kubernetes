@@ -12,3 +12,10 @@
 
 `kubectl apply -f kubernetes/ingress.yaml`
 
+# Clean up
+
+kubectl delete ingress,service -l app=nuxt-demo
+
+gcloud compute addresses delete nuxt-demo-ip --global
+
+kubectl delete -f kubernetes/deployment.yaml
