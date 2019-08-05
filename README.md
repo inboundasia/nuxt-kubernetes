@@ -1,3 +1,7 @@
+# TODO
+
+[ ] with gitlab
+
 # Deploy Flow
 
 `docker build . -t asia.gcr.io/inboundmarketing/nuxt-demo`
@@ -19,3 +23,9 @@ kubectl delete ingress,service -l app=nuxt-demo
 gcloud compute addresses delete nuxt-demo-ip --global
 
 kubectl delete -f kubernetes/deployment.yaml
+
+# With Gitlab
+
+https://docs.gitlab.com/ee/user/project/clusters/index.html/#add-existing-kubernetes-cluster
+
+https://jasonlee.xyz/gitlab-yu-kubernetes-zheng-he/
